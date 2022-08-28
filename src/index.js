@@ -17,6 +17,8 @@ function cardRender(card){
   cardImageTag.src = card.image;
   cardLikesTag.textContent = `${card.likes} likes`;
     
-
+  while(cardListTag.hasChildNodes()){
+    cardListTag.removeChild(cardListTag.lastChild)
+}
 };
 
