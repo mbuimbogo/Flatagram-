@@ -20,5 +20,12 @@ function cardRender(card){
   while(cardListTag.hasChildNodes()){
     cardListTag.removeChild(cardListTag.lastChild)
 }
+
+card.comments.forEach(comment => {
+    let commentTag = document.createElement('li');
+    commentTag.textContent = comment.content;
+    cardListTag.appendChild(commentTag)
+});
+
 };
 
