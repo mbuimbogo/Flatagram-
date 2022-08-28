@@ -51,7 +51,7 @@ cardCommentFormTag.addEventListener('submit', (e) => {
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify(card)
     })
-    .then(response => response.json())
+    .then(res => res.json())
     .then(data => console.log(data))
     .catch(err => console.log(`Error: ${err}`));
 
