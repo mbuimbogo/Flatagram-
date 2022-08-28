@@ -12,6 +12,10 @@ function cardRender(card){
     cardCommentFormTag = document.querySelector('#comment-form'),
     cardCommentInputTag = document.querySelector('#comment'),
 
+
+  cardTitleTag.textContent = card.title;
+  cardImageTag.src = card.image;
+  cardLikesTag.textContent = `${card.likes} likes`;
     
 
 };
