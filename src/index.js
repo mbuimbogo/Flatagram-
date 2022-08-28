@@ -33,5 +33,41 @@ cardLikesBtnTag.addEventListener('click', () => {
     cardLikesTag.textContent = `${card.likes} Likes`
 
 })
+cardCommentFormTag.addEventListener('submit', (e) => {
+    e.preventDefault();
+    let commentTag = document.createElement('li');
+    commentTag.textContent = cardCommentInputTag.value;
+    cardListTag.appendChild(commentTag);
+
+    const newComment = {
+        id: card.comments.length+1,
+        imageId: 1,
+        content: cardCommentInputTag.value
+    }
+    card.comments.push(newComment);
+
+    fetch('http://localhost:3000/images/1', {
+        method: 'PATCH',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(card)
+    })
+    .then(response => response.json())
+    .then(data => console.log(data))
+    .catch(err => console.log(`Error: ${err}`));
+
+    fetch('http://localhost:3000/comments/', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(newComment)
+    })
+    .then(response => response.json())
+    .then(data => console.log(data))
+    .catch(err => console.log(`Error: ${err}`));
+
+    cardCommentFormTag.reset();
+});
+
 };
+
+
 
