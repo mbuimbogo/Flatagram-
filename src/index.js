@@ -27,5 +27,11 @@ card.comments.forEach(comment => {
     cardListTag.appendChild(commentTag)
 });
 
+
+cardLikesBtnTag.addEventListener('click', () => {
+    card.likes += 1;
+    cardLikesTag.textContent = `${card.likes} Likes`
+
+})
 };
 
