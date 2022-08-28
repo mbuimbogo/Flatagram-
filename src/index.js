@@ -70,4 +70,14 @@ cardCommentFormTag.addEventListener('submit', (e) => {
 };
 
 
-
+document.addEventListener("DOMContentLoaded", ()=> {
+    cardRender();
+})
+function fetchData(path=1){
+    url = `http://localhost:3000/images/${path}`;
+    fetch(url)
+    .then(response => response.json())
+    .then(data => cardRender(data))
+    .catch(err => (`Error: ${err}`));
+};
+fetchData()
